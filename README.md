@@ -24,8 +24,6 @@ Airlines can be compared to rank performance based on cancellations and delays. 
 ### Observing "Types" of Delay
 Delay information can be binned to create a categorical feature. Bins can be subjectively defined. Intuition most likely suggests something along the lines of <=30min, <=1hrs, <=2hrs, <=3hrs, <=5hrs, >5hrs. Data can be plotted to determine best structure for binning. Alternatively, quantiles or percentiles could be used for binning. From there, a model can be built to predict delay type based on select features. Binning the delay times creates a categorical feature, which turns this into a classification problem (as oppposed to regression).
 
-#### Note on delay related features
-
 #### Visualizing -- Pie Chart
 Include pie chart here to show portion of flights in each category. Categories can be defined with indices (0-5; 0 lowest (<=30min), 5 highest (>5hr)).
 
