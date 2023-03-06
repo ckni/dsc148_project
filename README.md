@@ -8,7 +8,6 @@ Kaggle Dataset: https://www.kaggle.com/datasets/heemalichaudhari/airlines-delay
 Due to the uncompressed dataset being >200MB and exceeding the GitHub file size limit, a compressed zip folder containing the dataset is included in the repository. Furthermore, a .gitignore file is included to ignore the uncompressed dataset file, which should be stored directly in the repository folder locally as DelayedFlights.csv.
 
 # Early EDA
-
 Exploring the dataset to build a research problem and get an idea of what the dataset looks like and how we could approach working with it.
 
 TODO: Format this section into an introductory section in final paper, and include visualizations. Code for visualizations is not strictly necessary here.
@@ -42,3 +41,14 @@ Some initial ideas: PCA, SVM. As is normal, the data should be standardize data 
 
 ### Evaluating Models
 A confusion matrix can be used to evaluate a predictive model for a categorical y-value.
+
+# Building a Model
+- Separate numeric/categorical features
+- Separate pipeline for both types of features
+  - Numeric: impute median for NaN values, scaled using standard scaler
+  - Categorical: simple imputer (mode) for NaN values, one-hot
+  - Both into column transformer to rejoin
+- LGBM regressor to predict output. 5x CV to get MSE of 0.057.
+- Can attempt other algorithms
+  - Regression: XGB, LGBM, RF, SVR
+  - Classification: XGB Reg, LGBM Reg, SVM
